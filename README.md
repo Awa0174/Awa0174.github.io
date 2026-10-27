@@ -10,15 +10,16 @@ Veröffentlicht über GitHub Pages direkt aus dem `main`-Zweig.
 ```
 index.html          Startseite mit allen Abschnitten
 css/style.css       Gestaltung (Farben als Variablen in :root)
-js/main.js          Partikelmotiv, aktive Navigation, Einblenden
+js/main.js          Partikel, Menü, Details, Lauflicht, Bildvergrößerung
 assets/img/         Signaturbild, Screenshots (WebP, je 640 und 1200 px breit), OG-Bild, Icons
 404.html, robots.txt, sitemap.xml
 ```
 
 ## Pflege
 
-- **Projekt ergänzen oder ändern:** In `index.html` ist jedes Projekt ein `<article class="project">`-Block mit
-  gleichem Aufbau (Bild, Status, Beschreibung, vier Fragen, Technologien, Links). Block kopieren, Inhalte ersetzen.
+- **Projekt ergänzen oder ändern:** In `index.html` ist jedes Projekt ein `<article class="project">`-Block: Bild, Status,
+  Kurzbeschreibung, eigener Beitrag, Links, Technologien und aufklappbare Details (Funktionen, eine technische
+  Entscheidung, nächste Schritte). Block kopieren, Inhalte ersetzen und eine Kachel unter „Auf einen Blick“ ergänzen.
 - **Statusfarben:** `status--live`, `status--wip`, `status--fork`, `status--jam`, `status--gmod`.
 - **Screenshots:** als WebP in 640 und 1200 px Breite im Seitenverhältnis 16:10 ablegen.
 - **„Aktuell“:** Text und Datum im Abschnitt „Über mich“ anpassen.

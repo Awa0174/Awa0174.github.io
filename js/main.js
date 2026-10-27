@@ -42,19 +42,18 @@
     if (siteNav.classList.contains('is-open') && !e.target.closest('.site-header')) setMenu(false);
   });
 
-  /* ---------- Projektdetails: auf dem Handy eingeklappt, am PC offen ---------- */
+  /* ---------- Projektdetails: zuerst eingeklappt, damit die Karten kurz bleiben ---------- */
   const moreToggles = [...document.querySelectorAll('.more-toggle')];
   const setMore = (btn, open) => {
     btn.setAttribute('aria-expanded', String(open));
-    btn.textContent = open ? 'Weniger anzeigen' : 'Details anzeigen';
+    btn.textContent = open ? 'Details ausblenden' : 'Details, Technik und nächste Schritte';
     document.getElementById(btn.getAttribute('aria-controls')).hidden = !open;
   };
-  const applyLayout = () => moreToggles.forEach((btn) => setMore(btn, !mobile.matches));
-  moreToggles.forEach((btn) =>
-    btn.addEventListener('click', () => setMore(btn, btn.getAttribute('aria-expanded') !== 'true'))
-  );
-  applyLayout();
-  mobile.addEventListener?.('change', () => { applyLayout(); if (!mobile.matches) setMenu(false); });
+  moreToggles.forEach((btn) => {
+    setMore(btn, false);
+    btn.addEventListener('click', () => setMore(btn, btn.getAttribute('aria-expanded') !== 'true'));
+  });
+  mobile.addEventListener?.('change', () => { if (!mobile.matches) setMenu(false); });
 
   /* ---------- Aktiven Abschnitt markieren und Einblenden ---------- */
   const navLinks = [...document.querySelectorAll('.nav a')];
@@ -174,9 +173,11 @@
       const btn = document.createElement('button');
       btn.type = 'button';
       btn.className = 'zoom';
-      btn.setAttribute('aria-label', 'Screenshot vergrößern: ' + (caption || img.alt));
+      const hint = document.createElement('span');
+      hint.className = 'visually-hidden';
+      hint.textContent = ' – vergrößern';
       img.replaceWith(btn);
-      btn.appendChild(img);
+      btn.append(img, hint);
       btn.addEventListener('click', () => {
         lbImg.src = img.currentSrc.replace('-640.', '-1200.') || img.src;
         lbImg.alt = img.alt;
