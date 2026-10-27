@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Awa – Webentwicklung und eigene Softwareprojekte</title>
+  <meta name="description" content="Portfolio von Awa: Webentwicklung und eigene Softwareprojekte neben der Uni – MedLab Studio, Particle Playground und Erweiterungen für Jarvis.">
+  <meta name="theme-color" content="#101512">
+  <meta name="color-scheme" content="dark">
+  <link rel="canonical" href="https://awa0174.github.io/">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="de_DE">
+  <meta property="og:site_name" content="Awa">
+  <meta property="og:title" content="Awa – Webentwicklung und eigene Softwareprojekte">
+  <meta property="og:description" content="Woran ich arbeite und wie sich meine Projekte weiterentwickeln: MedLab Studio, Particle Playground und Jarvis.">
+  <meta property="og:url" content="https://awa0174.github.io/">
+  <meta property="og:image" content="https://awa0174.github.io/assets/img/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Wortmarke „Awa“ in Grün auf dunklem Grund mit Partikeln">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="stylesheet" href="css/style.css">
+  <script>document.documentElement.classList.add('js')</script>
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="wordmark" href="#top" aria-label="Awa – zum Seitenanfang">Awa<span aria-hidden="true">.</span></a>
+      <nav aria-label="Hauptnavigation">
+        <ul class="nav">
+          <li><a href="#projekte">Projekte</a></li>
+          <li><a href="#ueber-mich">Über mich</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="inhalt">
+    <!-- Einstieg -->
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <canvas class="hero__particles" aria-hidden="true"></canvas>
+      <div class="container hero__inner">
+        <p class="eyebrow">Webentwicklung · Simulationen · Automatisierung</p>
+        <h1 id="hero-title">Hi, ich bin Awa.</h1>
+        <p class="hero__lead">Ich entwickle Websites und arbeite neben der Uni an eigenen Softwareprojekten.</p>
+        <p class="hero__text">Aktuell beschäftige ich mich mit Automatisierung, interaktiven Simulationen und webbasierten Anwendungen. Hier zeige ich, woran ich arbeite und wie sich meine Projekte weiterentwickeln.</p>
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="#projekte">Projekte ansehen</a>
+          <a class="btn btn--ghost" href="https://github.com/Awa0174">
+            <svg class="icon" aria-hidden="true" viewBox="0 0 16 16"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+            GitHub öffnen
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ausgewählte Projekte
+         Jedes Projekt ist ein <article class="project">-Block mit gleichem Aufbau:
+         Bild, Status, Name, Kurzbeschreibung, vier Fragen (dl), Technologien, Links.
+         Für ein neues Projekt einen Block kopieren und die Inhalte ersetzen. -->
+    <section class="section" id="projekte" aria-labelledby="projekte-title">
+      <div class="container">
+        <header class="section__head">
+          <p class="eyebrow">01 · Projekte</p>
+          <h2 id="projekte-title">Ausgewählte Projekte</h2>
+          <p class="section__intro">Drei Projekte, an denen ich gerade arbeite – mit ehrlichem Stand: was schon funktioniert, was von mir stammt und was als Nächstes kommt.</p>
+        </header>
+
+        <div class="projects">
+          <!-- MedLab Studio -->
+          <article class="project reveal" id="medlab-studio" aria-labelledby="p-medlab">
+            <figure class="project__media">
+              <picture>
+                <img src="assets/img/medlab-ecg-1200.webp"
+                     srcset="assets/img/medlab-ecg-640.webp 640w, assets/img/medlab-ecg-1200.webp 1200w"
+                     sizes="(min-width: 960px) 560px, calc(100vw - 32px)"
+                     width="1200" height="750" loading="lazy" decoding="async"
+                     alt="Das ECG Signal Lab von MedLab Studio: links Regler für Herzfrequenz, Abtastrate und Störungen, in der Mitte ein verrauschtes und ein gefiltertes EKG mit markierten R-Zacken, rechts Messergebnisse und Validierungsprüfungen.">
+              </picture>
+              <figcaption>ECG Signal Lab: synthetisches EKG mit Störungen, Filterung und R-Zacken-Erkennung.</figcaption>
+            </figure>
+            <div class="project__body">
+              <p class="status status--wip"><span class="status__dot" aria-hidden="true"></span>In Entwicklung · v0.2 · 3 von 10 Laboren nutzbar</p>
+              <h3 id="p-medlab">MedLab Studio</h3>
+              <p class="project__lead">Eine modulare Plattform zum Lernen und Experimentieren in der Medizintechnik: Signalverarbeitung, Reaktionszeit-Messung und Mensch-Maschine-Interaktion an einem Ort. Gedacht für Bildung und Demonstration – kein Medizinprodukt, alle Signale sind synthetisch.</p>
+              <dl class="facts">
+                <div class="facts__item">
+                  <dt>Zum Ausprobieren</dt>
+                  <dd>Ein synthetisches EKG erzeugen, 50-Hz-Netzbrummen und Muskelartefakte darüberlegen und zusehen, wie Notch- und Bandpassfilter das Signal zurückholen – inklusive R-Zacken-Erkennung nach Pan–Tompkins und Abgleich mit der bekannten Wahrheit.</dd>
+                </div>
+                <div class="facts__item">
+                  <dt>Funktioniert bereits</dt>
+                  <dd>ECG Signal Lab, Reaction Time Lab (Reaktionszeit im Browser messen, mit Unsicherheitsbudget) und HMI Lab (zwei Oberflächen einer simulierten Infusionspumpe im A/B-Vergleich). Experimente lassen sich speichern und per Ergebnis-Hash reproduzieren.</dd>
+                </div>
+                <div class="facts__item">
+                  <dt>Mein Beitrag</dt>
+                  <dd>Eigenes Projekt: Konzept, Architektur mit gemeinsamer Experiment-Infrastruktur, Backend, Oberfläche, Tests und Dokumentation der Modelle.</dd>
+                </div>
+                <div class="facts__item">
+                  <dt>Als Nächstes</dt>
+                  <dd>Ein Wearable Sensor Lab und ein Pharmacokinetics Lab für Arzneimittelkonzentrationen im Kompartimentmodell.</dd>
+                </div>
+              </dl>
+              <ul class="tags" aria-label="Eingesetzte Technologien">
+                <li>TypeScript</li><li>React</li><li>Vite</li><li>Tailwind CSS</li><li>ECharts</li><li>Python</li><li>FastAPI</li><li>NumPy/SciPy</li><li>SQLite</li><li>Vitest · pytest · Playwright</li>
+              </ul>
+              <div class="project__links">
+                <a class="btn btn--ghost btn--sm" href="https://github.com/Awa0174/MedLab-Studio">Code auf GitHub<span class="arrow" aria-hidden="true">↗</span></a>
+              </div>
+              <p class="project__note">Läuft lokal mit eigenem Backend – eine öffentliche Demo gibt es noch nicht. Die Startanleitung steht im README.</p>
+            </div>
+          </article>
+
+          <!-- Particle Playground -->
+          <article class="project reveal" id="particle-playground" aria-labelledby="p-particle">
+            <figure class="project__media">
+              <picture>
+                <img src="assets/img/particle-northern-1200.webp"
+                     srcset="assets/img/particle-northern-640.webp 640w, assets/img/particle-northern-1200.webp 1200w"
+                     sizes="(min-width: 960px) 560px, calc(100vw - 32px)"
+                     width="1200" height="750" loading="lazy" decoding="async"
+                     alt="Der Editor von Particle Playground mit dem Effekt „Northern Lights“: ein grünes, bewegtes Polarlicht aus Partikeln, links Szene und Emitter, rechts Regler für Emission und Farbe, unten die Timeline.">
+              </picture>
+              <figcaption>Der Effekt „Northern Lights“ im Editor – mit Szene, Inspector und Timeline.</figcaption>
+            </figure>
+            <div class="project__body">
+              <p class="status status--live"><span class="status__dot" aria-hidden="true"></span>Version 1.0 · Live-Demo verfügbar</p>
+              <h3 id="p-particle">Particle Playground</h3>
+              <p class="project__lead">Ein VFX-Studio im Browser: Partikeleffekte bauen, simulieren, animieren und teilen – mit einer selbst entwickelten Partikel-Engine und einer HDR-Renderpipeline.</p>
+              <dl class="facts">
+                <div class="facts__item">
+                  <dt>Funktioniert bereits</dt>
+                  <dd>Zwölf Presets von Galaxie bis Polarlicht, Kräfte wie Wind, Wirbel und Curl-Noise, GPU-Schwärme mit 100 000 bis zu einer Million Partikeln, Bloom und Tonemapping, Keyframes für jeden Parameter, Share-Links und Video-Export.</dd>
+                </div>
+                <div class="facts__item">
+                  <dt>Was mich daran reizt</dt>
+                  <dd>Die Timeline ist vor- und rückwärts scrubbar: Fester Zeitschritt, Seed-Zufall und Snapshots sorgen dafür, dass derselbe Seed immer dasselbe Bild ergibt – unabhängig von der Bildrate. Simulation und Rendering sind dafür sauber getrennt.</dd>
+                </div>
+                <div class="facts__item">
+                  <dt>Mein Beitrag</dt>
+                  <dd>Eigenes Projekt: Engine, WebGL-Renderer, GPU-Simulation und Editor-Oberfläche.</dd>
+                </div>
+                <div class="facts__item">
+                  <dt>Als Nächstes</dt>
+                  <dd>Funktionen auf die GPU bringen, die bisher nur auf der CPU laufen – etwa Sub-Emitter und Fluid-Kräfte.</dd>
+                </div>
+              </dl>
+              <ul class="tags" aria-label="Eingesetzte Technologien">
+                <li>TypeScript</li><li>React</li><li>WebGL2</li><li>GLSL</li><li>Vite</li><li>Vitest</li>
+              </ul>
+              <div class="project__links">
+                <a class="btn btn--primary btn--sm" href="https://awa0174.github.io/Particle-Playground/">Live-Demo öffnen<span class="arrow" aria-hidden="true">↗</span></a>
+                <a class="btn btn--ghost btn--sm" href="https://github.com/Awa0174/Particle-Playground">Code auf GitHub<span class="arrow" aria-hidden="true">↗</span></a>
+              </div>
+              <p class="project__note">Die Demo ist ein Editor und am besten am Desktop in einem aktuellen Browser zu erleben.</p>
+            </div>
+          </article>
+
+          <!-- Jarvis -->
+          <article class="project reveal" id="jarvis" aria-labelledby="p-jarvis">
+            <figure class="project__media">
+              <picture>
+                <img src="assets/img/jarvis-boot-1200.webp"
+                     srcset="assets/img/jarvis-boot-640.webp 640w, assets/img/jarvis-boot-1200.webp 1200w"
+                     sizes="(min-width: 960px) 560px, calc(100vw - 32px)"
+                     width="1200" height="750" loading="lazy" decoding="async"
+                     alt="Die Oberfläche von Jarvis im Standby: ein leuchtender, türkisfarbener Ring in einem Partikelfeld, darunter eine Befehlsleiste mit Schaltflächen und ein Eingabefeld.">
+              </picture>
+              <figcaption>Die Reaktor-Oberfläche stammt aus dem Original; Befehlsleiste und Statusanzeigen habe ich ergänzt.</figcaption>
+            </figure>
+            <div class="project__body">
+              <p class="status status--fork"><span class="status__dot" aria-hidden="true"></span>Fork · laufende Erweiterungen</p>
+              <h3 id="p-jarvis">Jarvis <span class="h3-sub">– Anpassungen und Experimente</span></h3>
+              <p class="project__lead">Jarvis ist ein Sprachassistent im Browser von <a href="https://github.com/adewaskar/jarvis">Aditya Dewaskar</a>, der Claude Code als „Gehirn“ nutzt. In meinem Fork baue ich ihn zu einem deutschsprachigen Alltagshelfer unter Windows aus.</p>
+              <dl class="facts">
+                <div class="facts__item">
+                  <dt>Von mir stammt</dt>
+                  <dd>
+                    <ul class="ticks">
+                      <li>Windows-Setup sowie Deutsch für Erkennung, Stimme und Persona</li>
+                      <li>Lokale Spracherkennung mit whisper.cpp auf der GPU und eine lokale Stimme (Piper)</li>
+                      <li>Eine Bestätigung pro Aktion, bevor Jarvis etwas verändert</li>
+                      <li>Ein Modell-Router mit Regeln und vier Stufen, dazu ein Gedächtnis über Sitzungen hinweg</li>
+                      <li>Alltag: Kalender, Erinnerungen, Wetter, Morgenbriefing und E-Mails (nur lesend)</li>
+                      <li>Gameserver hinter einem Pterodactyl-Panel: Status und Logs frei, Befehle nur nach Bestätigung</li>
+                      <li>Werkzeuge für Kundenrecherche und Angebotsentwürfe – Jarvis sammelt und bewertet, kontaktiert aber niemanden selbst</li>
+                    </ul>
+                  </dd>
+                </div>
+                <div class="facts__item">
+                  <dt>Als Nächstes</dt>
+                  <dd>Die Erweiterungen im Alltag erproben und stabilisieren.</dd>
+                </div>
+              </dl>
+              <ul class="tags" aria-label="Eingesetzte Technologien">
+                <li>TypeScript</li><li>React</li><li>Node.js</li><li>Claude Agent SDK</li><li>whisper.cpp</li><li>Three.js</li>
+              </ul>
+              <div class="project__links">
+                <a class="btn btn--ghost btn--sm" href="https://github.com/adewaskar/jarvis/compare/main...Awa0174:jarvis:feat/windows-setup">Meine Änderungen ansehen<span class="arrow" aria-hidden="true">↗</span></a>
+                <a class="btn btn--ghost btn--sm" href="https://github.com/Awa0174/jarvis/tree/feat/windows-setup">Mein Fork<span class="arrow" aria-hidden="true">↗</span></a>
+                <a class="btn btn--ghost btn--sm" href="https://github.com/adewaskar/jarvis">Originalprojekt<span class="arrow" aria-hidden="true">↗</span></a>
+              </div>
+              <p class="project__note">Läuft lokal mit Mikrofon und einem Claude-Code-Zugang – deshalb keine öffentliche Demo.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Über mich -->
+    <section class="section section--alt" id="ueber-mich" aria-labelledby="ueber-title">
+      <div class="container about">
+        <header class="section__head">
+          <p class="eyebrow">02 · Über mich</p>
+          <h2 id="ueber-title">Über mich</h2>
+        </header>
+        <div class="about__text reveal">
+          <p>Neben der Uni arbeite ich in meiner Freizeit an mehreren Softwareprojekten und möchte wieder stärker in die Webentwicklung einsteigen. Mich beschäftigen derzeit ganz unterschiedliche Themen – von Automatisierung bis zu interaktiven Simulationen.</p>
+          <p>Auch Garry’s Mod und nanos world gehören zu meiner Freizeit. Mein Portfolio soll zeigen, was daraus und aus meinen anderen Interessen mit der Zeit entsteht.</p>
+        </div>
+
+        <aside class="now reveal" aria-labelledby="now-title">
+          <p class="now__label"><span class="pulse" aria-hidden="true"></span><span id="now-title">Aktuell</span></p>
+          <p>Ich baue mein Portfolio auf und steige wieder stärker in die Webentwicklung ein. Parallel arbeite ich an meinen bestehenden Freizeitprojekten.</p>
+          <p class="now__date">Stand: <time datetime="2026-10">Oktober 2026</time></p>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Technologien und Arbeitsweise -->
+    <section class="section" id="technologien" aria-labelledby="tech-title">
+      <div class="container">
+        <header class="section__head">
+          <p class="eyebrow">03 · Werkzeuge</p>
+          <h2 id="tech-title">Technologien und Arbeitsweise</h2>
+          <p class="section__intro">Nur was ich tatsächlich einsetze – jeweils mit dem Projekt, in dem es vorkommt.</p>
+        </header>
+        <ul class="stack reveal">
+          <li><span class="stack__name">TypeScript</span><span class="stack__where">in allen drei Projekten</span></li>
+          <li><span class="stack__name">React</span><span class="stack__where">Oberflächen von MedLab Studio, Particle Playground und Jarvis</span></li>
+          <li><span class="stack__name">WebGL2 &amp; GLSL</span><span class="stack__where">Renderer und GPU-Simulation in Particle Playground</span></li>
+          <li><span class="stack__name">Python &amp; FastAPI</span><span class="stack__where">Backend und Signalverarbeitung von MedLab Studio</span></li>
+          <li><span class="stack__name">Node.js</span><span class="stack__where">die Bridge zwischen Oberfläche und Agent bei Jarvis</span></li>
+          <li><span class="stack__name">Vitest, pytest, Playwright</span><span class="stack__where">Tests in MedLab Studio und Particle Playground</span></li>
+          <li><span class="stack__name">HTML &amp; CSS</span><span class="stack__where">diese Website – ohne Framework</span></li>
+        </ul>
+        <div class="principles reveal">
+          <div class="principle">
+            <h3>Kleine, nachvollziehbare Schritte</h3>
+            <p>Jede Änderung bekommt einen Commit, der sagt, was sich geändert hat und warum.</p>
+          </div>
+          <div class="principle">
+            <h3>Prüfbar statt behauptet</h3>
+            <p>Kernlogik ist getestet – etwa der Determinismus in Particle Playground oder die Filter in MedLab Studio.</p>
+          </div>
+          <div class="principle">
+            <h3>Grenzen offen benennen</h3>
+            <p>Modelle, Annahmen und Einschränkungen stehen in der Dokumentation und direkt in der Oberfläche.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Kontakt -->
+    <section class="section section--contact" id="kontakt" aria-labelledby="kontakt-title">
+      <div class="container contact reveal">
+        <p class="eyebrow">04 · Kontakt</p>
+        <h2 id="kontakt-title">Lust auf Austausch?</h2>
+        <p>Ob Frage zu einem Projekt, Idee für eine Zusammenarbeit oder einfach Feedback – am einfachsten erreichst du mich über GitHub.</p>
+        <a class="btn btn--primary" href="https://github.com/Awa0174">
+          <svg class="icon" aria-hidden="true" viewBox="0 0 16 16"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+          github.com/Awa0174
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <p>© <span data-year>2026</span> Awa</p>
+      <ul class="footer-links">
+        <li><a href="https://github.com/Awa0174">GitHub</a></li>
+        <li><a href="https://github.com/Awa0174/Awa0174.github.io">Quellcode dieser Seite</a></li>
+      </ul>
+    </div>
+  </footer>
+</body>
+</html>
