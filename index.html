@@ -39,6 +39,7 @@
   </svg>
 
   <header class="site-header">
+    <div class="scroll-progress" aria-hidden="true"></div>
     <div class="container site-header__inner">
       <a class="brand" href="#top" aria-label="Awa – zum Seitenanfang">
         <img class="brand__avatar" src="assets/img/awa-96.webp" width="40" height="40" alt="">
@@ -72,6 +73,12 @@
                alt="Awas Signaturbild: eine gezeichnete Figur mit dunklem Haar in hellem, grünem Licht am Fenster.">
         </figure>
         <div class="hero__copy">
+          <a class="ticker" href="#medlab-studio" data-ticker>
+            <span class="pulse" aria-hidden="true"></span>
+            <span class="ticker__label">Woran ich baue:</span>
+            <span class="ticker__item">MedLab Studio</span>
+            <span class="ticker__arrow" aria-hidden="true">→</span>
+          </a>
           <p class="eyebrow">Webentwicklung · Simulationen · Modding</p>
           <h1 id="hero-title">Hi, ich bin <span class="glow">Awa.</span></h1>
           <p class="hero__lead">Ich entwickle Websites und arbeite neben der Uni an eigenen Softwareprojekten.</p>
@@ -85,6 +92,13 @@
             <li><a href="https://steamcommunity.com/id/-Awa/"><svg class="icon" aria-hidden="true"><use href="#i-steam"/></svg>Steam</a></li>
           </ul>
         </div>
+      </div>
+      <div class="hero__fx container">
+        <p class="hero__hint" aria-hidden="true">Klick ins Partikelfeld</p>
+        <button class="fx-toggle" type="button" aria-pressed="false" title="Partikel anhalten">
+          <span class="fx-toggle__icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Partikel anhalten</span>
+        </button>
       </div>
     </section>
 
@@ -424,6 +438,15 @@
       </div>
     </section>
   </main>
+
+  <!-- Vergrößerte Screenshots -->
+  <dialog class="lightbox" aria-label="Screenshot vergrößert">
+    <form method="dialog">
+      <button class="lightbox__close" type="submit">Schließen <span aria-hidden="true">✕</span></button>
+    </form>
+    <img class="lightbox__img" alt="">
+    <p class="lightbox__caption"></p>
+  </dialog>
 
   <footer class="site-footer">
     <div class="container site-footer__inner">
