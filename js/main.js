@@ -115,8 +115,9 @@
       big.addEventListener('click', () => openLightbox(big.src, big.alt));
       media.append(big, zoom);
     } else {
-      const code = card.querySelector('.card__media--code');
-      if (code) media.append(code.cloneNode(true));
+      // Karten ohne Screenshot (z. B. TimeTales) zeigen ihr Beispiel auch im Panel
+      const example = card.querySelector('.card__media');
+      if (example) media.append(example.cloneNode(true));
     }
     drawer.querySelector('.drawer__meta').innerHTML = card.querySelector('.card__meta').innerHTML;
     drawer.querySelector('.drawer__title').textContent = card.querySelector('.card__title').textContent;
@@ -256,8 +257,8 @@
   const ctx = canvas.getContext('2d');
   const fxToggle = document.querySelector('.fx-toggle');
 
-  // Farben aus dem Signaturbild: Mint, helles Mint, Cremeweiß, tiefes Grün
-  const COLORS = ['201,248,175', '231,254,204', '253,254,226', '144,194,122'];
+  // Tintentöne aus dem Signaturbild – auf hellem Papier wie Rasterpunkte einer Zeichnung
+  const COLORS = ['46,92,31', '15,23,11', '79,122,61', '104,144,85'];
   let w = 0, h = 0, dpr = 1;
   let particles = [];
   let sparks = [];
@@ -283,7 +284,7 @@
     p.vy = 0;
     p.size = 0.6 + Math.random() * 1.7;
     p.speed = 0.25 + Math.random() * 0.55;
-    p.alpha = 0.2 + Math.random() * 0.65;
+    p.alpha = 0.15 + Math.random() * 0.5;
     p.color = COLORS[(Math.random() * COLORS.length) | 0];
     return p;
   };
