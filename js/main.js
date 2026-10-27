@@ -1,24 +1,35 @@
-// Awa – Portfolio: Menü, Details auf dem Handy, Navigation, Einblenden,
-// Partikelmotiv, Lauflicht, Kippen, Lichtschein, Scroll-Fortschritt, Bildvergrößerung.
+// Awa – Portfolio: Kopfbereich und Menü, Projekt-Seitenpanel mit teilbaren Links,
+// Bildvergrößerung, Einblenden, Kippen und Lichtschein, Partikelmotiv.
 (() => {
   'use strict';
 
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-  const mobile = window.matchMedia('(max-width: 959px)');
+  const desktop = window.matchMedia('(min-width: 960px)');
   const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
   const store = {
     get(key) { try { return localStorage.getItem(key); } catch { return null; } },
     set(key, value) { try { localStorage.setItem(key, value); } catch { /* privater Modus */ } },
   };
 
-  /* ---------- Kopfbereich: Linie und Fortschritt beim Scrollen ---------- */
+  /* ---------- Kopfbereich: Linie, Fortschritt und aktiver Abschnitt ---------- */
   const header = document.querySelector('.site-header');
+  const navLinks = [...document.querySelectorAll('.nav a')];
+  const targets = navLinks.map((a) => document.querySelector(a.getAttribute('href'))).filter(Boolean);
   let scrollQueued = false;
   const onScroll = () => {
     scrollQueued = false;
     const max = document.documentElement.scrollHeight - window.innerHeight;
     header.classList.toggle('is-scrolled', window.scrollY > 8);
     header.style.setProperty('--progress', max > 0 ? (window.scrollY / max).toFixed(4) : '0');
+    // Aktiv ist der letzte Abschnitt, dessen Anfang das obere Drittel erreicht hat
+    const line = window.innerHeight * 0.35;
+    let current = null;
+    for (const t of targets) if (t.getBoundingClientRect().top <= line) current = t;
+    if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) current = targets[targets.length - 1];
+    for (const a of navLinks) {
+      if (current && a.getAttribute('href') === '#' + current.id) a.setAttribute('aria-current', 'true');
+      else a.removeAttribute('aria-current');
+    }
   };
   onScroll();
   window.addEventListener('scroll', () => {
@@ -42,38 +53,8 @@
     if (siteNav.classList.contains('is-open') && !e.target.closest('.site-header')) setMenu(false);
   });
 
-  /* ---------- Projektdetails: zuerst eingeklappt, damit die Karten kurz bleiben ---------- */
-  const moreToggles = [...document.querySelectorAll('.more-toggle')];
-  const setMore = (btn, open) => {
-    btn.setAttribute('aria-expanded', String(open));
-    btn.textContent = open ? 'Details ausblenden' : 'Details, Technik und nächste Schritte';
-    document.getElementById(btn.getAttribute('aria-controls')).hidden = !open;
-  };
-  moreToggles.forEach((btn) => {
-    setMore(btn, false);
-    btn.addEventListener('click', () => setMore(btn, btn.getAttribute('aria-expanded') !== 'true'));
-  });
-  mobile.addEventListener?.('change', () => { if (!mobile.matches) setMenu(false); });
-
-  /* ---------- Aktiven Abschnitt markieren und Einblenden ---------- */
-  const navLinks = [...document.querySelectorAll('.nav a')];
-  const sections = navLinks.map((a) => document.querySelector(a.getAttribute('href'))).filter(Boolean);
-
+  /* ---------- Einblenden ---------- */
   if ('IntersectionObserver' in window) {
-    const spy = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (!entry.isIntersecting) continue;
-          for (const a of navLinks) {
-            if (a.getAttribute('href') === '#' + entry.target.id) a.setAttribute('aria-current', 'true');
-            else a.removeAttribute('aria-current');
-          }
-        }
-      },
-      { rootMargin: '-45% 0px -50% 0px' }
-    );
-    sections.forEach((s) => spy.observe(s));
-
     const reveal = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
@@ -94,37 +75,143 @@
   const year = document.querySelector('[data-year]');
   if (year) year.textContent = String(new Date().getFullYear());
 
-  /* ---------- Lauflicht: woran ich baue ---------- */
-  const ticker = document.querySelector('[data-ticker]');
-  if (ticker) {
-    const items = [...document.querySelectorAll('.project h3')].map((h) => ({
-      name: h.firstChild.textContent.trim(),
-      href: '#' + h.closest('.project').id,
-    }));
-    const label = ticker.querySelector('.ticker__item');
-    let i = 0;
-    let timer = 0;
-    const show = (idx) => {
-      label.classList.add('is-out');
-      setTimeout(() => {
-        label.textContent = items[idx].name;
-        ticker.setAttribute('href', items[idx].href);
-        label.classList.remove('is-out');
-        label.classList.add('is-in');
-        requestAnimationFrame(() => requestAnimationFrame(() => label.classList.remove('is-in')));
-      }, 300);
-    };
-    const run = () => {
-      clearInterval(timer);
-      if (items.length < 2) return;
-      timer = setInterval(() => {
-        if (document.hidden || ticker.matches(':hover, :focus-visible')) return;
-        i = (i + 1) % items.length;
-        show(i);
-      }, reducedMotion.matches ? 5200 : 3200);
-    };
-    run();
-    reducedMotion.addEventListener?.('change', run);
+  /* ---------- Bildvergrößerung ---------- */
+  const lightbox = document.querySelector('.lightbox');
+  const openLightbox = (src, alt) => {
+    if (!lightbox?.showModal) return;
+    lightbox.querySelector('.lightbox__img').src = src;
+    lightbox.querySelector('.lightbox__img').alt = alt;
+    lightbox.querySelector('.lightbox__caption').textContent = alt;
+    lightbox.showModal();
+  };
+  lightbox?.addEventListener('click', (e) => { if (e.target === lightbox) lightbox.close(); });
+
+  /* ---------- Projekt-Seitenpanel ---------- */
+  const drawer = document.querySelector('.drawer');
+  const cards = [...document.querySelectorAll('.card')];
+  const HASH = '#projekt=';
+  let currentIndex = -1;
+  let pushedState = false;
+  let returnFocus = null;
+
+  const idFromHash = () => (location.hash.startsWith(HASH) ? decodeURIComponent(location.hash.slice(HASH.length)) : null);
+
+  const fill = (card) => {
+    const media = drawer.querySelector('.drawer__media');
+    media.replaceChildren();
+    const img = card.querySelector('.card__media img');
+    if (img) {
+      const big = document.createElement('img');
+      big.src = (img.currentSrc || img.src).replace('-640.', '-1200.');
+      big.alt = img.alt;
+      big.width = 1200;
+      big.height = 750;
+      const zoom = document.createElement('button');
+      zoom.type = 'button';
+      zoom.className = 'zoom-btn';
+      zoom.textContent = '⤢ Vergrößern';
+      zoom.setAttribute('aria-label', 'Bild vergrößern');
+      zoom.addEventListener('click', () => openLightbox(big.src, big.alt));
+      big.addEventListener('click', () => openLightbox(big.src, big.alt));
+      media.append(big, zoom);
+    } else {
+      const code = card.querySelector('.card__media--code');
+      if (code) media.append(code.cloneNode(true));
+    }
+    drawer.querySelector('.drawer__meta').innerHTML = card.querySelector('.card__meta').innerHTML;
+    drawer.querySelector('.drawer__title').textContent = card.querySelector('.card__title').textContent;
+    drawer.querySelector('.drawer__lead').textContent = card.querySelector('.card__lead').textContent;
+    drawer.querySelector('.drawer__detail').innerHTML = card.querySelector('[data-detail]').innerHTML;
+    drawer.querySelector('.drawer__count').textContent = `${currentIndex + 1} / ${cards.length}`;
+    drawer.querySelector('.drawer__scroll').scrollTop = 0;
+  };
+
+  const openProject = (id, { push = true } = {}) => {
+    const index = cards.findIndex((c) => c.id === id);
+    if (index < 0 || !drawer?.showModal) return;
+    currentIndex = index;
+    fill(cards[index]);
+    if (!drawer.open) {
+      returnFocus = cards[index].querySelector('.card__open');
+      drawer.classList.remove('is-closing');
+      drawer.showModal();
+      document.documentElement.classList.add('is-locked');
+    }
+    if (push) {
+      history.pushState({ projekt: id }, '', HASH + id);
+      pushedState = true;
+    }
+    const title = drawer.querySelector('.drawer__title');
+    title.setAttribute('tabindex', '-1');
+    title.focus({ preventScroll: true });
+  };
+
+  const finishClose = () => {
+    drawer.classList.remove('is-closing');
+    if (drawer.open) drawer.close();
+    document.documentElement.classList.remove('is-locked');
+    const card = cards[currentIndex];
+    currentIndex = -1;
+    // Fokus zurück auf die Karte, damit man an derselben Stelle weiterliest
+    (card?.querySelector('.card__open') || returnFocus)?.focus({ preventScroll: true });
+  };
+  const animateClose = () => {
+    if (!drawer.open || drawer.classList.contains('is-closing')) return;
+    drawer.classList.add('is-closing');
+    const done = () => { drawer.removeEventListener('animationend', done); finishClose(); };
+    drawer.addEventListener('animationend', done);
+    setTimeout(done, 300);
+  };
+  // Schließen über Knopf, Esc oder Klick daneben: den Verlaufseintrag mit zurücknehmen
+  const requestClose = () => {
+    if (pushedState && idFromHash()) {
+      pushedState = false;
+      history.back();
+    } else {
+      if (idFromHash()) history.replaceState(null, '', location.pathname + location.search);
+      animateClose();
+    }
+  };
+
+  const step = (dir) => {
+    if (currentIndex < 0) return;
+    const next = (currentIndex + dir + cards.length) % cards.length;
+    const id = cards[next].id;
+    currentIndex = next;
+    fill(cards[next]);
+    history.replaceState({ projekt: id }, '', HASH + id);
+    drawer.querySelector('.drawer__title').focus({ preventScroll: true });
+  };
+
+  if (drawer && typeof drawer.showModal === 'function') {
+    cards.forEach((card) => {
+      card.querySelector('.card__open')?.addEventListener('click', () => openProject(card.id));
+      // Die ganze Karte öffnet das Panel – außer Links und Schaltflächen darin
+      card.addEventListener('click', (e) => {
+        if (e.target.closest('a, button, summary, details')) return;
+        openProject(card.id);
+      });
+    });
+    drawer.querySelector('.drawer__close').addEventListener('click', requestClose);
+    drawer.querySelectorAll('[data-step]').forEach((b) => b.addEventListener('click', () => step(+b.dataset.step)));
+    drawer.addEventListener('cancel', (e) => { e.preventDefault(); requestClose(); });
+    drawer.addEventListener('click', (e) => { if (e.target === drawer) requestClose(); });
+    drawer.addEventListener('keydown', (e) => {
+      if (e.target.closest('input, textarea')) return;
+      if (e.key === 'ArrowRight') { e.preventDefault(); step(1); }
+      if (e.key === 'ArrowLeft') { e.preventDefault(); step(-1); }
+    });
+    window.addEventListener('popstate', () => {
+      const id = idFromHash();
+      if (id) openProject(id, { push: false });
+      else if (drawer.open) animateClose();
+    });
+    // Geteilter Link: Panel direkt öffnen
+    const initial = idFromHash();
+    if (initial) {
+      cards.find((c) => c.id === initial)?.scrollIntoView({ block: 'center' });
+      openProject(initial, { push: false });
+    }
   }
 
   /* ---------- Bild im Einstieg kippt leicht mit der Maus ---------- */
@@ -135,7 +222,7 @@
     glare.className = 'glare';
     portrait.appendChild(glare);
     portrait.addEventListener('pointermove', (e) => {
-      if (mobile.matches) return;
+      if (!desktop.matches) return;
       const k = reducedMotion.matches ? 0.5 : 1;
       const r = portrait.getBoundingClientRect();
       const x = (e.clientX - r.left) / r.width - 0.5;
@@ -153,40 +240,13 @@
 
   /* ---------- Lichtschein auf Karten folgt der Maus ---------- */
   if (finePointer.matches) {
-    document.querySelectorAll('.project, .principle, .now').forEach((card) => {
+    cards.forEach((card) => {
       card.addEventListener('pointermove', (e) => {
         const r = card.getBoundingClientRect();
         card.style.setProperty('--mx', `${e.clientX - r.left}px`);
         card.style.setProperty('--my', `${e.clientY - r.top}px`);
       });
     });
-  }
-
-  /* ---------- Screenshots vergrößern ---------- */
-  const lightbox = document.querySelector('.lightbox');
-  if (lightbox && typeof lightbox.showModal === 'function') {
-    const lbImg = lightbox.querySelector('.lightbox__img');
-    const lbCap = lightbox.querySelector('.lightbox__caption');
-    document.querySelectorAll('.project__media img').forEach((img) => {
-      const figure = img.closest('figure');
-      const caption = figure?.querySelector('figcaption')?.textContent.trim() || '';
-      const btn = document.createElement('button');
-      btn.type = 'button';
-      btn.className = 'zoom';
-      const hint = document.createElement('span');
-      hint.className = 'visually-hidden';
-      hint.textContent = ' – vergrößern';
-      img.replaceWith(btn);
-      btn.append(img, hint);
-      btn.addEventListener('click', () => {
-        lbImg.src = img.currentSrc.replace('-640.', '-1200.') || img.src;
-        lbImg.alt = img.alt;
-        lbCap.textContent = caption;
-        lightbox.showModal();
-      });
-    });
-    // Klick neben das Bild schließt
-    lightbox.addEventListener('click', (e) => { if (e.target === lightbox) lightbox.close(); });
   }
 
   /* ---------- Partikelmotiv (Anspielung auf Particle Playground) ---------- */
@@ -278,7 +338,7 @@
     if (!running) start(true);
   };
 
-  const step = (now) => {
+  const stepParticles = (now) => {
     const dt = Math.min(3, last ? (now - last) / 16.7 : 1);
     last = now;
     // Bei reduzierter Bewegung (z. B. Windows-Animationen aus) läuft alles deutlich ruhiger.
@@ -340,7 +400,7 @@
 
     // Angehalten: nur noch die letzten Funken ausklingen lassen.
     if (paused && !sparks.length) { stop(); drawStatic(); return; }
-    raf = requestAnimationFrame(step);
+    raf = requestAnimationFrame(stepParticles);
   };
 
   function start(force = false) {
@@ -348,7 +408,7 @@
     if (paused && !force) return;
     running = true;
     last = 0;
-    raf = requestAnimationFrame(step);
+    raf = requestAnimationFrame(stepParticles);
   }
   function stop() {
     running = false;
@@ -377,7 +437,7 @@
   hero.addEventListener('pointerleave', () => { pointer.active = false; });
   hero.addEventListener('click', (e) => {
     // Nur ins freie Feld, nicht auf Links, Schaltflächen oder Texte
-    if (e.target.closest('a, button, p, h1, figure, li, .ticker')) return;
+    if (e.target.closest('a, button, p, h1, figure, li')) return;
     const rect = canvas.getBoundingClientRect();
     burst(e.clientX - rect.left, e.clientY - rect.top);
   });

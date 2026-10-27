@@ -65,7 +65,6 @@
           <li><a href="#projekte">Projekte</a></li>
           <li><a href="#modding">Modding</a></li>
           <li><a href="#ueber-mich">Über mich</a></li>
-          <li><a href="#technologien">Werkzeuge</a></li>
           <li><a href="#kontakt">Kontakt</a></li>
         </ul>
       </nav>
@@ -73,28 +72,14 @@
   </header>
 
   <main id="inhalt">
-    <!-- Einstieg -->
+    <!-- ============ Einstieg ============ -->
     <section class="hero" id="top" aria-labelledby="hero-title">
       <canvas class="hero__particles" aria-hidden="true"></canvas>
       <div class="container hero__inner">
-        <figure class="hero__portrait">
-          <img src="assets/img/awa-480.webp"
-               srcset="assets/img/awa-192.webp 192w, assets/img/awa-480.webp 480w, assets/img/awa-900.webp 900w"
-               sizes="(min-width: 960px) 400px, 120px"
-               width="480" height="480" fetchpriority="high"
-               alt="Awas Signaturbild: eine gezeichnete Figur mit dunklem Haar in hellem, grünem Licht am Fenster.">
-        </figure>
         <div class="hero__copy">
-          <a class="ticker" href="#particle-playground" data-ticker>
-            <span class="pulse" aria-hidden="true"></span>
-            <span class="ticker__label">Woran ich baue:</span>
-            <span class="ticker__item">Particle Playground</span>
-            <span class="ticker__arrow" aria-hidden="true">→</span>
-          </a>
           <p class="eyebrow">Webentwicklung · Simulationen · Modding</p>
           <h1 id="hero-title">Hi, ich bin <span class="glow">Awa.</span></h1>
-          <p class="hero__lead">Ich entwickle Websites und arbeite neben der Uni an eigenen Softwareprojekten.</p>
-          <p class="hero__text">Am liebsten baue ich interaktive Anwendungen, die man direkt ausprobieren kann – etwa eine eigene Partikel-Engine im Browser, eine Lernplattform für Medizintechnik oder Spielmodi in Lua.</p>
+          <p class="hero__lead">Ich entwickle Websites und arbeite neben der Uni an eigenen Softwareprojekten – am liebsten an interaktiven Anwendungen, die man direkt ausprobieren kann.</p>
           <div class="hero__actions">
             <a class="btn btn--primary" href="#projekte">Projekte ansehen</a>
             <a class="btn btn--ghost" href="https://awa0174.github.io/Particle-Playground/">Live-Demo starten<span class="arrow" aria-hidden="true">↗</span></a>
@@ -105,6 +90,13 @@
             <li><a href="https://steamcommunity.com/id/-Awa/"><svg class="icon" aria-hidden="true"><use href="#i-steam"/></svg>Steam</a></li>
           </ul>
         </div>
+        <figure class="hero__portrait">
+          <img src="assets/img/awa-480.webp"
+               srcset="assets/img/awa-192.webp 192w, assets/img/awa-480.webp 480w, assets/img/awa-900.webp 900w"
+               sizes="(min-width: 960px) 380px, 112px"
+               width="480" height="480" fetchpriority="high"
+               alt="Awas Signaturbild: eine gezeichnete Figur mit dunklem Haar in hellem, grünem Licht am Fenster.">
+        </figure>
       </div>
       <div class="hero__fx container">
         <p class="hero__hint" aria-hidden="true">Klick ins Partikelfeld</p>
@@ -115,337 +107,252 @@
       </div>
     </section>
 
-    <!-- Überblick: alle Arbeiten auf einen Blick -->
-    <section class="overview" aria-labelledby="overview-title">
-      <div class="container">
-        <h2 class="overview__title" id="overview-title">Auf einen Blick</h2>
-        <ul class="tiles">
-          <li class="tile">
-            <img src="assets/img/particle-northern-640.webp" width="640" height="400" loading="lazy" decoding="async" alt="">
-            <div class="tile__body">
-              <p class="tile__type">Web-App · Live-Demo</p>
-              <h3><a class="tile__link" href="#particle-playground">Particle Playground</a></h3>
-              <p>Partikeleffekte im Browser bauen und animieren.</p>
-            </div>
-          </li>
-          <li class="tile">
-            <img src="assets/img/medlab-ecg-640.webp" width="640" height="400" loading="lazy" decoding="async" alt="">
-            <div class="tile__body">
-              <p class="tile__type">Lernplattform</p>
-              <h3><a class="tile__link" href="#medlab-studio">MedLab Studio</a></h3>
-              <p>Medizintechnik-Experimente zum Ausprobieren.</p>
-            </div>
-          </li>
-          <li class="tile">
-            <img src="assets/img/jarvis-boot-640.webp" width="640" height="400" loading="lazy" decoding="async" alt="">
-            <div class="tile__body">
-              <p class="tile__type">Fork · Sprachassistent</p>
-              <h3><a class="tile__link" href="#jarvis">Jarvis</a></h3>
-              <p>Ein Sprachassistent für den Windows-Alltag.</p>
-            </div>
-          </li>
-          <li class="tile">
-            <img src="assets/img/jacks-last-show-640.webp" width="640" height="400" loading="lazy" decoding="async" alt="">
-            <div class="tile__body">
-              <p class="tile__type">Spielmodus · nanos world</p>
-              <h3><a class="tile__link" href="#jacks-last-show">Jack’s Last Show</a></h3>
-              <p>Ein Party-Spiel für bis zu 12 Leute.</p>
-            </div>
-          </li>
-          <li class="tile tile--code">
-            <div class="tile__code" aria-hidden="true"><span>addons/</span>tt_alterunen<br>tt_schuelersprecher<br>tt_gathering</div>
-            <div class="tile__body">
-              <p class="tile__type">Addons · Garry’s Mod</p>
-              <h3><a class="tile__link" href="#timetales">TimeTales</a></h3>
-              <p>Unterricht, Wahlen und Rohstoffe für einen RP-Server.</p>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- Ausgewählte Projekte
-         Jedes Projekt ist ein <article class="project">-Block:
-         Bild, Status, Name, Kurzbeschreibung, eigener Beitrag, Links, Technologien
-         und aufklappbare Details. Für ein neues Projekt einen Block kopieren. -->
+    <!-- ============ Projekte ============
+         Jede Karte (<article class="card">) zeigt das Wichtigste; der volle Text steht im
+         <details class="card__details"> darunter. Mit JavaScript öffnet er sich im Seitenpanel,
+         ohne JavaScript klappt er direkt in der Karte auf. -->
     <section class="section" id="projekte" aria-labelledby="projekte-title">
       <div class="container">
         <header class="section__head">
           <p class="eyebrow">01 · Projekte</p>
-          <h2 id="projekte-title">Ausgewählte Projekte</h2>
-          <p class="section__intro">Was die Projekte können, was davon von mir stammt und wie es weitergeht.</p>
+          <h2 id="projekte-title">Software</h2>
+          <p class="section__intro">Anwendungen im Browser und auf dem Desktop. Ein Klick auf eine Karte zeigt Details, Technik und nächste Schritte.</p>
         </header>
 
-        <div class="projects">
+        <div class="cards">
           <!-- Particle Playground -->
-          <article class="project project--featured reveal" id="particle-playground" aria-labelledby="p-particle">
-            <figure class="project__media">
+          <article class="card card--featured reveal" id="particle-playground" aria-labelledby="t-particle">
+            <div class="card__media">
               <img src="assets/img/particle-northern-1200.webp"
                    srcset="assets/img/particle-northern-640.webp 640w, assets/img/particle-northern-1200.webp 1200w"
-                   sizes="(min-width: 960px) 600px, calc(100vw - 32px)"
+                   sizes="(min-width: 960px) 640px, calc(100vw - 32px)"
                    width="1200" height="750" loading="lazy" decoding="async"
                    alt="Editor mit einem grünen Polarlicht aus Partikeln, links die Szene, rechts Regler, unten die Timeline.">
-              <figcaption>Der Effekt „Northern Lights“ im Editor.</figcaption>
-            </figure>
-            <div class="project__body">
-              <p class="status status--live"><span class="status__dot" aria-hidden="true"></span>Live-Demo · v1.0</p>
-              <h3 id="p-particle">Particle Playground</h3>
-              <p class="project__lead">Ein Editor im Browser, mit dem man Partikeleffekte wie Galaxien, Feuerwerk oder Polarlichter baut, animiert und als Video exportiert. Am PC und am Handy direkt ausprobierbar.</p>
-              <p class="project__role"><strong>Mein Beitrag:</strong> Eigenes Projekt – Partikel-Engine, Grafik-Renderer, Editor und Handy-Layout.</p>
-              <div class="project__links">
+            </div>
+            <div class="card__body">
+              <p class="card__meta"><span class="status status--live">Live-Demo</span><span>Web-App · v1.0</span></p>
+              <h3 class="card__title" id="t-particle">Particle Playground</h3>
+              <p class="card__lead">Ein Editor im Browser, mit dem man Partikeleffekte wie Galaxien, Feuerwerk oder Polarlichter baut, animiert und als Video exportiert – am PC und am Handy.</p>
+              <ul class="tags" aria-label="Technologien"><li>TypeScript</li><li>WebGL2</li><li>React</li></ul>
+              <div class="card__actions">
                 <a class="btn btn--primary btn--sm" href="https://awa0174.github.io/Particle-Playground/">Live-Demo öffnen<span class="arrow" aria-hidden="true">↗</span></a>
-                <a class="btn btn--ghost btn--sm" href="https://github.com/Awa0174/Particle-Playground"><svg class="icon" aria-hidden="true"><use href="#i-github"/></svg>Code</a>
-                <a class="btn btn--ghost btn--sm" href="https://github.com/Awa0174/Particle-Playground/issues">Feedback geben<span class="arrow" aria-hidden="true">↗</span></a>
-              </div>
-              <ul class="tags" aria-label="Eingesetzte Technologien">
-                <li>TypeScript</li><li>React</li><li>WebGL2</li><li>GLSL</li><li>Vitest</li>
-              </ul>
-              <button class="more-toggle" type="button" aria-expanded="true" aria-controls="more-particle">Details</button>
-              <div class="more" id="more-particle">
-                <dl class="facts">
-                  <div class="facts__item">
-                    <dt>Was es kann</dt>
-                    <dd>Zwölf fertige Effekte, Werkzeuge zum Anziehen, Abstoßen und Malen von Kraftfeldern, Keyframes für jeden Regler, Teilen per Link und Video-Export. Große Schwärme rechnet die Grafikkarte – wie viele Partikel flüssig laufen, hängt vom Gerät ab; eine eingebaute Leistungsanzeige zeigt die echten Werte.</dd>
-                  </div>
-                  <div class="facts__item decision">
-                    <dt>Eine technische Entscheidung</dt>
-                    <dd>
-                      <dl class="decision__steps">
-                        <div><dt>Problem</dt><dd>Die Timeline sollte sich vor- und zurückspulen lassen, ohne dass sich der Effekt verändert.</dd></div>
-                        <div><dt>Ansatz</dt><dd>Fester Zeitschritt, Zufall aus einem Seed und gespeicherte Zwischenstände – derselbe Seed ergibt immer dasselbe Bild.</dd></div>
-                        <div><dt>Nachteil</dt><dd>Eingriffe mit Maus oder Mikrofon lassen sich nicht wiederholen. Solche Momente werden nicht gespeichert; beim Spulen gilt wieder der reproduzierbare Verlauf.</dd></div>
-                        <div><dt>Ergebnis</dt><dd>Tests sichern ab, dass das Ergebnis bei jeder Bildrate gleich bleibt und Zurückspulen exakt denselben Zustand liefert.</dd></div>
-                      </dl>
-                    </dd>
-                  </div>
-                  <div class="facts__item">
-                    <dt>Als Nächstes</dt>
-                    <dd>Funktionen auf die Grafikkarte bringen, die bisher nur auf dem Prozessor laufen, etwa Unter-Emitter.</dd>
-                  </div>
-                </dl>
+                <button class="card__open" type="button" data-open="particle-playground">Details <span aria-hidden="true">→</span></button>
               </div>
             </div>
+            <details class="card__details">
+              <summary>Details, Technik und nächste Schritte</summary>
+              <div class="detail" data-detail>
+                <p class="detail__role"><strong>Mein Beitrag:</strong> Eigenes Projekt – Partikel-Engine, Grafik-Renderer, Editor und Handy-Layout.</p>
+                <div class="detail__links">
+                  <a class="btn btn--primary btn--sm" href="https://awa0174.github.io/Particle-Playground/">Live-Demo öffnen<span class="arrow" aria-hidden="true">↗</span></a>
+                  <a class="btn btn--ghost btn--sm" href="https://github.com/Awa0174/Particle-Playground"><svg class="icon" aria-hidden="true"><use href="#i-github"/></svg>Code</a>
+                  <a class="btn btn--ghost btn--sm" href="https://github.com/Awa0174/Particle-Playground/issues">Feedback geben<span class="arrow" aria-hidden="true">↗</span></a>
+                </div>
+                <h4>Was es kann</h4>
+                <p>Zwölf fertige Effekte, Werkzeuge zum Anziehen, Abstoßen und Malen von Kraftfeldern, Keyframes für jeden Regler, Teilen per Link und Video-Export. Große Schwärme rechnet die Grafikkarte – wie viele Partikel flüssig laufen, hängt vom Gerät ab; eine eingebaute Leistungsanzeige zeigt die echten Werte.</p>
+                <h4>Eine technische Entscheidung</h4>
+                <dl class="decision">
+                  <div><dt>Problem</dt><dd>Die Timeline sollte sich vor- und zurückspulen lassen, ohne dass sich der Effekt verändert.</dd></div>
+                  <div><dt>Ansatz</dt><dd>Fester Zeitschritt, Zufall aus einem Seed und gespeicherte Zwischenstände – derselbe Seed ergibt immer dasselbe Bild.</dd></div>
+                  <div><dt>Nachteil</dt><dd>Eingriffe mit Maus oder Mikrofon lassen sich nicht wiederholen. Solche Momente werden nicht gespeichert; beim Spulen gilt wieder der reproduzierbare Verlauf.</dd></div>
+                  <div><dt>Ergebnis</dt><dd>Tests sichern ab, dass das Ergebnis bei jeder Bildrate gleich bleibt und Zurückspulen exakt denselben Zustand liefert.</dd></div>
+                </dl>
+                <h4>Als Nächstes</h4>
+                <p>Funktionen auf die Grafikkarte bringen, die bisher nur auf dem Prozessor laufen, etwa Unter-Emitter.</p>
+                <h4>Technologien</h4>
+                <ul class="tags"><li>TypeScript</li><li>React</li><li>WebGL2</li><li>GLSL</li><li>Vite</li><li>Vitest</li></ul>
+              </div>
+            </details>
           </article>
 
           <!-- MedLab Studio -->
-          <article class="project reveal" id="medlab-studio" aria-labelledby="p-medlab">
-            <figure class="project__media">
+          <article class="card reveal" id="medlab-studio" aria-labelledby="t-medlab">
+            <div class="card__media">
               <img src="assets/img/medlab-ecg-1200.webp"
                    srcset="assets/img/medlab-ecg-640.webp 640w, assets/img/medlab-ecg-1200.webp 1200w"
-                   sizes="(min-width: 960px) 580px, calc(100vw - 32px)"
+                   sizes="(min-width: 960px) 560px, calc(100vw - 32px)"
                    width="1200" height="750" loading="lazy" decoding="async"
                    alt="Labor-Oberfläche mit Reglern links, einem verrauschten und einem gefilterten EKG in der Mitte und Messwerten rechts.">
-              <figcaption>Das EKG-Labor: Signal stören, filtern, auswerten.</figcaption>
-            </figure>
-            <div class="project__body">
-              <p class="status status--wip"><span class="status__dot" aria-hidden="true"></span>In Entwicklung · 3 Labore nutzbar</p>
-              <h3 id="p-medlab">MedLab Studio</h3>
-              <p class="project__lead">Eine Lernplattform für Medizintechnik: Man erzeugt zum Beispiel ein künstliches EKG, stört es mit Netzbrummen und sieht, wie Filter das Signal wieder sauber machen. Dazu kommen Labore für Reaktionszeit und für die Bedienung medizinischer Geräte. Kein Medizinprodukt – alle Signale sind synthetisch.</p>
-              <p class="project__role"><strong>Mein Beitrag:</strong> Eigenes Projekt – Konzept, Architektur, Backend, Oberfläche und Tests.</p>
-              <div class="project__links">
+            </div>
+            <div class="card__body">
+              <p class="card__meta"><span class="status status--wip">In Entwicklung</span><span>Lernplattform · 3 Labore</span></p>
+              <h3 class="card__title" id="t-medlab">MedLab Studio</h3>
+              <p class="card__lead">Medizintechnik zum Ausprobieren: ein künstliches EKG stören und wieder sauber filtern, Reaktionszeit messen oder zwei Gerätebedienungen vergleichen.</p>
+              <ul class="tags" aria-label="Technologien"><li>TypeScript</li><li>Python</li><li>FastAPI</li></ul>
+              <div class="card__actions">
                 <a class="btn btn--ghost btn--sm" href="https://github.com/Awa0174/MedLab-Studio"><svg class="icon" aria-hidden="true"><use href="#i-github"/></svg>Code</a>
-              </div>
-              <ul class="tags" aria-label="Eingesetzte Technologien">
-                <li>TypeScript</li><li>React</li><li>Python</li><li>FastAPI</li><li>NumPy/SciPy</li><li>pytest</li>
-              </ul>
-              <button class="more-toggle" type="button" aria-expanded="true" aria-controls="more-medlab">Details</button>
-              <div class="more" id="more-medlab">
-                <dl class="facts">
-                  <div class="facts__item">
-                    <dt>Die drei Labore</dt>
-                    <dd>
-                      <ul class="ticks">
-                        <li><strong>EKG:</strong> Signal erzeugen, stören, filtern, Herzschläge erkennen und mit den bekannten Referenzwerten vergleichen</li>
-                        <li><strong>Reaktionszeit:</strong> im Browser messen, inklusive Abschätzung der Messungenauigkeit</li>
-                        <li><strong>Bedienung:</strong> zwei Oberflächen einer simulierten Infusionspumpe im Vergleich – welche führt zu weniger Fehlern?</li>
-                      </ul>
-                    </dd>
-                  </div>
-                  <div class="facts__item decision">
-                    <dt>Eine technische Entscheidung</dt>
-                    <dd>
-                      <dl class="decision__steps">
-                        <div><dt>Problem</dt><dd>Ergebnisse sollen sich später exakt wiederholen und überprüfen lassen.</dd></div>
-                        <div><dt>Ansatz</dt><dd>Jedes Experiment speichert Modellversion, Parameter mit Einheiten, Seed und eine Prüfsumme des Ergebnisses.</dd></div>
-                        <div><dt>Nachteil</dt><dd>Bei gemessenen Experimenten müssen die Rohdaten mitgespeichert werden, damit das Backend sie neu auswerten kann.</dd></div>
-                        <div><dt>Ergebnis</dt><dd>Ein gespeichertes Experiment lässt sich jederzeit neu berechnen; die Prüfsumme zeigt, ob dasselbe herauskommt.</dd></div>
-                      </dl>
-                    </dd>
-                  </div>
-                  <div class="facts__item">
-                    <dt>Als Nächstes</dt>
-                    <dd>Ein Labor für Sensordaten von Wearables und eines für Arzneimittelspiegel im Körper.</dd>
-                  </div>
-                </dl>
-                <p class="project__note">Läuft lokal mit eigenem Backend, daher ohne öffentliche Demo. Die Startanleitung steht im README.</p>
+                <button class="card__open" type="button" data-open="medlab-studio">Details <span aria-hidden="true">→</span></button>
               </div>
             </div>
+            <details class="card__details">
+              <summary>Details, Technik und nächste Schritte</summary>
+              <div class="detail" data-detail>
+                <p class="detail__role"><strong>Mein Beitrag:</strong> Eigenes Projekt – Konzept, Architektur, Backend, Oberfläche und Tests.</p>
+                <div class="detail__links">
+                  <a class="btn btn--ghost btn--sm" href="https://github.com/Awa0174/MedLab-Studio"><svg class="icon" aria-hidden="true"><use href="#i-github"/></svg>Code</a>
+                </div>
+                <p class="detail__note">Kein Medizinprodukt – alle Signale sind synthetisch. Läuft lokal mit eigenem Backend, daher ohne öffentliche Demo; die Startanleitung steht im README.</p>
+                <h4>Die drei Labore</h4>
+                <ul class="ticks">
+                  <li><strong>EKG:</strong> Signal erzeugen, stören, filtern, Herzschläge erkennen und mit den bekannten Referenzwerten vergleichen</li>
+                  <li><strong>Reaktionszeit:</strong> im Browser messen, inklusive Abschätzung der Messungenauigkeit</li>
+                  <li><strong>Bedienung:</strong> zwei Oberflächen einer simulierten Infusionspumpe im Vergleich – welche führt zu weniger Fehlern?</li>
+                </ul>
+                <h4>Eine technische Entscheidung</h4>
+                <dl class="decision">
+                  <div><dt>Problem</dt><dd>Ergebnisse sollen sich später exakt wiederholen und überprüfen lassen.</dd></div>
+                  <div><dt>Ansatz</dt><dd>Jedes Experiment speichert Modellversion, Parameter mit Einheiten, Seed und eine Prüfsumme des Ergebnisses.</dd></div>
+                  <div><dt>Nachteil</dt><dd>Bei gemessenen Experimenten müssen die Rohdaten mitgespeichert werden, damit das Backend sie neu auswerten kann.</dd></div>
+                  <div><dt>Ergebnis</dt><dd>Ein gespeichertes Experiment lässt sich jederzeit neu berechnen; die Prüfsumme zeigt, ob dasselbe herauskommt.</dd></div>
+                </dl>
+                <h4>Als Nächstes</h4>
+                <p>Ein Labor für Sensordaten von Wearables und eines für Arzneimittelspiegel im Körper.</p>
+                <h4>Technologien</h4>
+                <ul class="tags"><li>TypeScript</li><li>React</li><li>Tailwind CSS</li><li>ECharts</li><li>Python</li><li>FastAPI</li><li>NumPy/SciPy</li><li>SQLite</li><li>pytest</li><li>Playwright</li></ul>
+              </div>
+            </details>
           </article>
 
           <!-- Jarvis -->
-          <article class="project reveal" id="jarvis" aria-labelledby="p-jarvis">
-            <figure class="project__media">
+          <article class="card reveal" id="jarvis" aria-labelledby="t-jarvis">
+            <div class="card__media">
               <img src="assets/img/jarvis-boot-1200.webp"
                    srcset="assets/img/jarvis-boot-640.webp 640w, assets/img/jarvis-boot-1200.webp 1200w"
-                   sizes="(min-width: 960px) 580px, calc(100vw - 32px)"
+                   sizes="(min-width: 960px) 560px, calc(100vw - 32px)"
                    width="1200" height="750" loading="lazy" decoding="async"
                    alt="Jarvis im Standby: ein leuchtender türkiser Ring in einem Partikelfeld, darunter eine Befehlsleiste.">
-              <figcaption>Ring-Oberfläche aus dem Original; die Befehlsleiste darunter habe ich ergänzt.</figcaption>
-            </figure>
-            <div class="project__body">
-              <p class="status status--fork"><span class="status__dot" aria-hidden="true"></span>Fork · Experimente</p>
-              <h3 id="p-jarvis">Jarvis <span class="h3-sub">– Anpassungen und Experimente</span></h3>
-              <p class="project__lead">Ein Sprachassistent im Browser von <a href="https://github.com/adewaskar/jarvis">Aditya Dewaskar</a>, der Claude Code als „Gehirn“ nutzt. Ich baue ihn zu einem deutschsprachigen Helfer für den Windows-Alltag aus.</p>
-              <div class="project__role">
-                <strong>Mein Beitrag (26 Commits), vor allem:</strong>
+            </div>
+            <div class="card__body">
+              <p class="card__meta"><span class="status status--fork">Fork</span><span>Sprachassistent · 26 Commits</span></p>
+              <h3 class="card__title" id="t-jarvis">Jarvis</h3>
+              <p class="card__lead">Ein Sprachassistent von Aditya Dewaskar, den ich zu einem deutschsprachigen Helfer für den Windows-Alltag ausbaue – mit lokaler Spracherkennung und Bestätigung vor jeder Änderung.</p>
+              <ul class="tags" aria-label="Technologien"><li>TypeScript</li><li>Node.js</li><li>whisper.cpp</li></ul>
+              <div class="card__actions">
+                <a class="btn btn--ghost btn--sm" href="https://github.com/adewaskar/jarvis/compare/main...Awa0174:jarvis:feat/windows-setup">Meine Änderungen<span class="arrow" aria-hidden="true">↗</span></a>
+                <button class="card__open" type="button" data-open="jarvis">Details <span aria-hidden="true">→</span></button>
+              </div>
+            </div>
+            <details class="card__details">
+              <summary>Details, Technik und nächste Schritte</summary>
+              <div class="detail" data-detail>
+                <p class="detail__role"><strong>Mein Beitrag:</strong> 26 Commits auf einem Fork von <a href="https://github.com/adewaskar/jarvis">Aditya Dewaskars Jarvis</a>, der Claude Code als „Gehirn“ nutzt. Die Ring-Oberfläche stammt aus dem Original.</p>
+                <div class="detail__links">
+                  <a class="btn btn--ghost btn--sm" href="https://github.com/adewaskar/jarvis/compare/main...Awa0174:jarvis:feat/windows-setup">Meine Änderungen<span class="arrow" aria-hidden="true">↗</span></a>
+                  <a class="btn btn--ghost btn--sm" href="https://github.com/Awa0174/jarvis/tree/feat/windows-setup"><svg class="icon" aria-hidden="true"><use href="#i-github"/></svg>Fork</a>
+                  <a class="btn btn--ghost btn--sm" href="https://github.com/adewaskar/jarvis">Original<span class="arrow" aria-hidden="true">↗</span></a>
+                </div>
+                <p class="detail__note">Läuft lokal mit Mikrofon und einem Claude-Code-Zugang, daher ohne öffentliche Demo.</p>
+                <h4>Von mir stammt</h4>
                 <ul class="ticks">
                   <li>Windows-Setup und Deutsch für Spracherkennung, Stimme und Persona</li>
                   <li>Lokale Spracherkennung (whisper.cpp) und lokale Stimme (Piper)</li>
                   <li>Eine Bestätigung vor jeder Aktion, die etwas verändert</li>
+                  <li>Ein Router, der je nach Aufgabe ein passendes Modell wählt, und ein Gedächtnis über Sitzungen hinweg</li>
+                  <li>Kalender, Erinnerungen, Wetter, Morgenbriefing und E-Mails (nur lesend)</li>
+                  <li>Gameserver-Verwaltung: Status und Logs frei, Befehle nur nach Bestätigung</li>
+                  <li>Recherche und Angebotsentwürfe – Jarvis sammelt, kontaktiert aber niemanden selbst</li>
+                  <li>Eine Befehlsleiste und Statusanzeigen unter dem Ring</li>
                 </ul>
-              </div>
-              <div class="project__links">
-                <a class="btn btn--ghost btn--sm" href="https://github.com/adewaskar/jarvis/compare/main...Awa0174:jarvis:feat/windows-setup">Meine Änderungen<span class="arrow" aria-hidden="true">↗</span></a>
-                <a class="btn btn--ghost btn--sm" href="https://github.com/Awa0174/jarvis/tree/feat/windows-setup"><svg class="icon" aria-hidden="true"><use href="#i-github"/></svg>Fork</a>
-                <a class="btn btn--ghost btn--sm" href="https://github.com/adewaskar/jarvis">Original<span class="arrow" aria-hidden="true">↗</span></a>
-              </div>
-              <ul class="tags" aria-label="Eingesetzte Technologien">
-                <li>TypeScript</li><li>React</li><li>Node.js</li><li>Claude Agent SDK</li><li>whisper.cpp</li>
-              </ul>
-              <button class="more-toggle" type="button" aria-expanded="true" aria-controls="more-jarvis">Details</button>
-              <div class="more" id="more-jarvis">
-                <dl class="facts">
-                  <div class="facts__item">
-                    <dt>Weitere Erweiterungen</dt>
-                    <dd>
-                      <ul class="ticks">
-                        <li>Ein Router, der je nach Aufgabe ein passendes Modell wählt, und ein Gedächtnis über Sitzungen hinweg</li>
-                        <li>Kalender, Erinnerungen, Wetter, Morgenbriefing und E-Mails (nur lesend)</li>
-                        <li>Gameserver-Verwaltung: Status und Logs frei, Befehle nur nach Bestätigung</li>
-                        <li>Recherche und Angebotsentwürfe – Jarvis sammelt, kontaktiert aber niemanden selbst</li>
-                      </ul>
-                    </dd>
-                  </div>
-                  <div class="facts__item decision">
-                    <dt>Eine technische Entscheidung</dt>
-                    <dd>
-                      <dl class="decision__steps">
-                        <div><dt>Problem</dt><dd>Ein Assistent, der Befehle ausführt, darf nichts ungefragt verändern.</dd></div>
-                        <div><dt>Ansatz</dt><dd>Jede verändernde Aktion braucht eine eigene Bestätigung; reine Lesebefehle laufen ohne Rückfrage.</dd></div>
-                        <div><dt>Nachteil</dt><dd>Aufgaben mit vielen Schritten brauchen mehr Klicks.</dd></div>
-                        <div><dt>Ergebnis</dt><dd>Kalender, Mails und Server lassen sich abfragen, ohne dass Jarvis dabei etwas ändert.</dd></div>
-                      </dl>
-                    </dd>
-                  </div>
+                <h4>Eine technische Entscheidung</h4>
+                <dl class="decision">
+                  <div><dt>Problem</dt><dd>Ein Assistent, der Befehle ausführt, darf nichts ungefragt verändern.</dd></div>
+                  <div><dt>Ansatz</dt><dd>Jede verändernde Aktion braucht eine eigene Bestätigung; reine Lesebefehle laufen ohne Rückfrage.</dd></div>
+                  <div><dt>Nachteil</dt><dd>Aufgaben mit vielen Schritten brauchen mehr Klicks.</dd></div>
+                  <div><dt>Ergebnis</dt><dd>Kalender, Mails und Server lassen sich abfragen, ohne dass Jarvis dabei etwas ändert.</dd></div>
                 </dl>
-                <p class="project__note">Läuft lokal mit Mikrofon und einem Claude-Code-Zugang, daher ohne öffentliche Demo.</p>
+                <h4>Technologien</h4>
+                <ul class="tags"><li>TypeScript</li><li>React</li><li>Node.js</li><li>Claude Agent SDK</li><li>whisper.cpp</li><li>Piper</li></ul>
               </div>
-            </div>
+            </details>
           </article>
         </div>
-      </div>
-    </section>
 
-    <!-- Modding -->
-    <section class="section section--modding" id="modding" aria-labelledby="modding-title">
-      <div class="container">
-        <header class="section__head">
+        <!-- ============ Modding ============ -->
+        <header class="section__head section__head--sub" id="modding">
           <p class="eyebrow">02 · Modding</p>
-          <h2 id="modding-title">Spielmodi und Server-Addons</h2>
+          <h2>Spielmodi und Server-Addons</h2>
           <p class="section__intro">In nanos world und Garry’s Mod baue ich eigene Spielmodi und Addons in Lua.</p>
         </header>
 
-        <div class="projects">
-          <!-- Jack's Last Show (nanos world) -->
-          <article class="project reveal" id="jacks-last-show" aria-labelledby="p-jack">
-            <figure class="project__media">
+        <div class="cards cards--modding">
+          <!-- Jack's Last Show -->
+          <article class="card reveal" id="jacks-last-show" aria-labelledby="t-jack">
+            <div class="card__media">
               <img src="assets/img/jacks-last-show-1200.webp"
                    srcset="assets/img/jacks-last-show-640.webp 640w, assets/img/jacks-last-show-1200.webp 1200w"
-                   sizes="(min-width: 960px) 580px, calc(100vw - 32px)"
+                   sizes="(min-width: 960px) 560px, calc(100vw - 32px)"
                    width="1200" height="750" loading="lazy" decoding="async"
                    alt="Plakat „Jack’s Last Show – Nobody Leaves“ mit einem grinsenden Clown im Springteufel-Kasten, daneben drei Spielkarten.">
-              <figcaption>Plakat und Spielkarten aus dem Spiel – eigene Assets.</figcaption>
-            </figure>
-            <div class="project__body">
-              <p class="status status--jam"><span class="status__dot" aria-hidden="true"></span>Game Jam · v0.13</p>
-              <h3 id="p-jack">Jack’s Last Show</h3>
-              <p class="project__lead">Ein Party-Spielmodus für nanos world: Spieler sitzen im Zirkuszelt um Jack in der Box, zufällige Events und Karten entscheiden, wer übrig bleibt. Eine Runde dauert etwa fünf Minuten.</p>
-              <p class="project__role"><strong>Mein Beitrag:</strong> Eigenes Jam-Projekt – Spielidee, Server- und Client-Code, Oberfläche, Plakat, Karten und Sounds.</p>
-              <div class="project__links">
+            </div>
+            <div class="card__body">
+              <p class="card__meta"><span class="status status--jam">Game Jam</span><span>nanos world · v0.13</span></p>
+              <h3 class="card__title" id="t-jack">Jack’s Last Show</h3>
+              <p class="card__lead">Ein Party-Spielmodus für bis zu 12 Leute: Alle sitzen im Zirkuszelt um Jack in der Box, Events und Karten entscheiden, wer übrig bleibt.</p>
+              <ul class="tags" aria-label="Technologien"><li>Lua</li><li>nanos world</li><li>WebUI</li></ul>
+              <div class="card__actions">
                 <a class="btn btn--ghost btn--sm" href="https://github.com/Awa0174/NanosworldgameJam"><svg class="icon" aria-hidden="true"><use href="#i-github"/></svg>Code</a>
-                <a class="btn btn--ghost btn--sm" href="https://github.com/Awa0174/NanosworldgameJam#installation-auf-dem-server">Auf eigenem Server spielen<span class="arrow" aria-hidden="true">↗</span></a>
-              </div>
-              <ul class="tags" aria-label="Eingesetzte Technologien">
-                <li>Lua</li><li>nanos world</li><li>HTML/CSS/JS</li><li>Piper TTS</li>
-              </ul>
-              <button class="more-toggle" type="button" aria-expanded="true" aria-controls="more-jack">Details</button>
-              <div class="more" id="more-jack">
-                <dl class="facts">
-                  <div class="facts__item">
-                    <dt>So läuft eine Show</dt>
-                    <dd>Ein Server fasst 12 Spieler. Es gibt zwei Zirkuszelte mit je 8 Plätzen; freie Plätze besetzen Bots. Wer später dazukommt, übernimmt zur nächsten Runde einen Bot-Platz. Acht Events, Spielkarten, ein Duell als Finale, und Jack spricht 94 vertonte Sätze (Piper TTS).</dd>
-                  </div>
-                  <div class="facts__item">
-                    <dt>Ein gelöster Fehler</dt>
-                    <dd>Angehängte 3D-Teile von Jack sprangen in den Drehpunkt – Gesicht und Kiste fielen auseinander. Eine Diagnose im Spiel zeigte: Die Engine (nanos 1.159) hält beim Anhängen die Lage nicht ein. Seitdem setzt eine eigene Funktion die relative Lage selbst.</dd>
-                  </div>
-                  <div class="facts__item">
-                    <dt>Als Nächstes</dt>
-                    <dd>Stimme, Kamera und Licht im Finale feinjustieren, danach eigene 3D-Modelle über das nanos world ADK in Unreal Engine.</dd>
-                  </div>
-                </dl>
-                <p class="project__note">Läuft als Package auf einem eigenen nanos-world-Server – mit 20 Sekunden Wartezeit startet eine Show auch allein mit Bots.</p>
+                <button class="card__open" type="button" data-open="jacks-last-show">Details <span aria-hidden="true">→</span></button>
               </div>
             </div>
+            <details class="card__details">
+              <summary>Details, Technik und nächste Schritte</summary>
+              <div class="detail" data-detail>
+                <p class="detail__role"><strong>Mein Beitrag:</strong> Eigenes Jam-Projekt – Spielidee, Server- und Client-Code, Oberfläche, Plakat, Karten und Sounds.</p>
+                <div class="detail__links">
+                  <a class="btn btn--ghost btn--sm" href="https://github.com/Awa0174/NanosworldgameJam"><svg class="icon" aria-hidden="true"><use href="#i-github"/></svg>Code</a>
+                  <a class="btn btn--ghost btn--sm" href="https://github.com/Awa0174/NanosworldgameJam#installation-auf-dem-server">Auf eigenem Server spielen<span class="arrow" aria-hidden="true">↗</span></a>
+                </div>
+                <h4>So läuft eine Show</h4>
+                <p>Ein Server fasst 12 Spieler. Es gibt zwei Zirkuszelte mit je 8 Plätzen; freie Plätze besetzen Bots. Wer später dazukommt, übernimmt zur nächsten Runde einen Bot-Platz. Eine Show dauert etwa fünf Minuten – mit acht Events, Spielkarten, einem Duell als Finale und 94 vertonten Sätzen von Jack (Piper TTS). Wer allein joint, spielt nach 20 Sekunden mit Bots.</p>
+                <h4>Ein gelöster Fehler</h4>
+                <p>Angehängte 3D-Teile von Jack sprangen in den Drehpunkt – Gesicht und Kiste fielen auseinander. Eine Diagnose im Spiel zeigte: Die Engine (nanos 1.159) hält beim Anhängen die Lage nicht ein. Seitdem setzt eine eigene Funktion die relative Lage selbst.</p>
+                <h4>Als Nächstes</h4>
+                <p>Stimme, Kamera und Licht im Finale feinjustieren, danach eigene 3D-Modelle über das nanos world ADK in Unreal Engine.</p>
+                <h4>Technologien</h4>
+                <ul class="tags"><li>Lua</li><li>nanos world</li><li>HTML/CSS/JS</li><li>Piper TTS</li></ul>
+              </div>
+            </details>
           </article>
 
-          <!-- TimeTales (Garry's Mod) -->
-          <article class="project reveal" id="timetales" aria-labelledby="p-timetales">
-            <div class="project__media project__media--code" aria-hidden="true">
+          <!-- TimeTales -->
+          <article class="card reveal" id="timetales" aria-labelledby="t-timetales">
+            <div class="card__media card__media--code" aria-hidden="true">
               <div class="codewin">
                 <div class="codewin__bar"><span></span><span></span><span></span><em>garrysmod/addons</em></div>
-                <pre class="codewin__body"><span class="c">-- meine Addons für TimeTales</span>
-<span class="k">tt_alterunen/</span><span class="d">         Wahlfach „Alte Runen“</span>
-<span class="k">tt_schuelersprecher/</span><span class="d">  Wahl der Schülersprecher</span>
-<span class="k">tt_gathering/</span><span class="d">         Erze, Pflanzen, Respawn</span>
-<span class="m">mc_quests/</span><span class="d">            Quest-Anpassungen</span>
-<span class="m">tt_f4/</span><span class="d">                F4-Menü</span>
-<span class="m">!core_scoreboard/</span><span class="d">     Scoreboard</span>
+                <pre class="codewin__body"><span class="c">-- meine Addons</span>
+<span class="k">tt_alterunen/</span>
+<span class="k">tt_schuelersprecher/</span>
+<span class="k">tt_gathering/</span>
 
-<span class="c">-- Testskript ohne laufenden Server</span>
 <span class="p">$</span> lua tests/run_tests.lua</pre>
               </div>
             </div>
-            <div class="project__body">
-              <p class="status status--gmod"><span class="status__dot" aria-hidden="true"></span>Garry’s Mod · Addons</p>
-              <h3 id="p-timetales">TimeTales <span class="h3-sub">– Addons für einen Harry-Potter-RP-Server</span></h3>
-              <p class="project__lead">Für den deutschen Rollenspielserver TimeTales entwickle ich Addons, die den Schulalltag in Hogwarts spielbar machen – vom Unterricht bis zu Wahlen.</p>
-              <div class="project__role">
-                <strong>Mein Beitrag:</strong>
-                <ul class="ticks">
-                  <li><strong>Alte Runen:</strong> ein Wahlfach mit 24 Runen, Runenpult und Werkbänken</li>
-                  <li><strong>Schülersprecher-Wahl:</strong> läuft jeden Monat von selbst – Kandidatur, Briefwahl, Stichwahl, Zeremonie</li>
-                  <li><strong>Gathering:</strong> Erzadern und Pflanzen, die nach dem Abbau nachwachsen, auch über Neustarts hinweg</li>
-                </ul>
-              </div>
-              <ul class="tags" aria-label="Eingesetzte Technologien">
-                <li>Lua</li><li>Garry’s Mod</li><li>DarkRP</li><li>MySQL</li>
-              </ul>
-              <button class="more-toggle" type="button" aria-expanded="true" aria-controls="more-timetales">Details</button>
-              <div class="more" id="more-timetales">
-                <dl class="facts">
-                  <div class="facts__item">
-                    <dt>Wie ich teste</dt>
-                    <dd>Für die Wahl und die Alten Runen gibt es Testskripte, die die benötigten Garry’s-Mod-Funktionen in Lua 5.4 nachbilden. So prüfe ich Abläufe wie Fristen und Auszählung ohne laufenden Server; was dort nicht abbildbar ist, gehe ich anschließend im Spiel anhand einer Testliste durch.</dd>
-                  </div>
-                  <div class="facts__item">
-                    <dt>Außerdem</dt>
-                    <dd>Anpassungen an Quests, F4-Menü und Scoreboard des Servers.</dd>
-                  </div>
-                </dl>
-                <p class="project__note">Der Code gehört zum Server und bleibt deshalb privat.</p>
+            <div class="card__body">
+              <p class="card__meta"><span class="status status--gmod">Privat</span><span>Garry’s Mod · Addons</span></p>
+              <h3 class="card__title" id="t-timetales">TimeTales</h3>
+              <p class="card__lead">Addons für einen deutschen Harry-Potter-Rollenspielserver: ein Wahlfach mit Runen, eine monatliche Schülersprecher-Wahl und Rohstoffe, die nachwachsen.</p>
+              <ul class="tags" aria-label="Technologien"><li>Lua</li><li>Garry’s Mod</li><li>MySQL</li></ul>
+              <div class="card__actions">
+                <button class="card__open" type="button" data-open="timetales">Details <span aria-hidden="true">→</span></button>
               </div>
             </div>
+            <details class="card__details">
+              <summary>Details, Technik und nächste Schritte</summary>
+              <div class="detail" data-detail>
+                <p class="detail__role"><strong>Mein Beitrag:</strong> drei eigene Addons und Anpassungen an Quests, F4-Menü und Scoreboard.</p>
+                <p class="detail__note">Der Code gehört zum Server und bleibt deshalb privat.</p>
+                <h4>Meine Addons</h4>
+                <ul class="ticks">
+                  <li><strong>Alte Runen:</strong> ein Wahlfach mit 24 Runen, Runenpult und Werkbänken im Klassenraum</li>
+                  <li><strong>Schülersprecher-Wahl:</strong> läuft jeden Monat von selbst – Kandidatur, Briefwahl, Stichwahl und Zeremonie in der Großen Halle</li>
+                  <li><strong>Gathering:</strong> Erzadern und Pflanzen mit Abbau und Ernte, die nachwachsen – auch über Serverneustarts hinweg, mit Toolgun-Editor</li>
+                </ul>
+                <h4>Wie ich teste</h4>
+                <p>Für die Wahl und die Alten Runen gibt es Testskripte, die die benötigten Garry’s-Mod-Funktionen in Lua 5.4 nachbilden. So prüfe ich Abläufe wie Fristen und Auszählung ohne laufenden Server; was dort nicht abbildbar ist, gehe ich anschließend im Spiel anhand einer Testliste durch.</p>
+                <h4>Technologien</h4>
+                <ul class="tags"><li>Lua</li><li>Garry’s Mod</li><li>DarkRP</li><li>MySQL</li></ul>
+              </div>
+            </details>
           </article>
         </div>
 
@@ -459,68 +366,60 @@
       </div>
     </section>
 
-    <!-- Über mich -->
+    <!-- ============ Über mich ============ -->
     <section class="section section--alt" id="ueber-mich" aria-labelledby="ueber-title">
-      <div class="container about">
+      <div class="container">
         <header class="section__head">
           <p class="eyebrow">03 · Über mich</p>
           <h2 id="ueber-title">Über mich</h2>
         </header>
-        <div class="about__text reveal">
-          <p>Ich studiere und entwickle neben der Uni eigene Software. Was meine Projekte verbindet: Man kann ihnen bei der Arbeit zusehen und selbst eingreifen – Partikel, die sich vor- und zurückspulen lassen, ein EKG, das man stört und wieder filtert, oder ein Spielabend, bei dem zwölf Leute um eine Kiste sitzen.</p>
-          <p>Viele Ideen kommen aus dem Spielen: In Garry’s Mod und nanos world baue ich Spielmodi und Addons, außerhalb davon Werkzeuge und Websites.</p>
-        </div>
+        <div class="about">
+          <div class="about__main reveal">
+            <div class="about__text">
+              <p>Ich studiere und entwickle neben der Uni eigene Software. Was meine Projekte verbindet: Man kann ihnen bei der Arbeit zusehen und selbst eingreifen – Partikel, die sich vor- und zurückspulen lassen, ein EKG, das man stört und wieder filtert, oder ein Spielabend, bei dem zwölf Leute um eine Kiste sitzen.</p>
+              <p>Viele Ideen kommen aus dem Spielen: In Garry’s Mod und nanos world baue ich Spielmodi und Addons, außerhalb davon Werkzeuge und Websites.</p>
+            </div>
 
-        <aside class="now reveal" aria-labelledby="now-title">
-          <p class="now__label"><span class="pulse" aria-hidden="true"></span><span id="now-title">Aktuell</span></p>
-          <ul class="now__list">
-            <li><span>Zuletzt</span> Den Particle-Playground-Editor fürs Handy umgebaut.</li>
-            <li><span>Als Nächstes</span> Neue Labore für MedLab Studio: Wearable-Sensordaten und Arzneimittelspiegel.</li>
-          </ul>
-          <p class="now__date">Stand: <time datetime="2026-10">Oktober 2026</time></p>
-        </aside>
-      </div>
-    </section>
+            <h3 class="about__sub">Wie ich arbeite</h3>
+            <ul class="ways">
+              <li><strong>Tests für die Kernlogik</strong> – etwa für den Determinismus in Particle Playground, die Filter in MedLab Studio und die Abläufe meiner Garry’s-Mod-Addons.</li>
+              <li><strong>Commits mit Begründung</strong> – die Nachrichten beschreiben, was sich geändert hat und warum.</li>
+              <li><strong>Grenzen in der Oberfläche</strong> – MedLab Studio erklärt Modelle, Annahmen und Einschränkungen direkt neben den Ergebnissen.</li>
+            </ul>
+          </div>
 
-    <!-- Technologien und Arbeitsweise -->
-    <section class="section" id="technologien" aria-labelledby="tech-title">
-      <div class="container">
-        <header class="section__head">
-          <p class="eyebrow">04 · Werkzeuge</p>
-          <h2 id="tech-title">Technologien und Arbeitsweise</h2>
-          <p class="section__intro">Jeweils mit dem Projekt, in dem ich sie einsetze.</p>
-        </header>
-        <ul class="stack reveal">
-          <li><span class="stack__name">TypeScript &amp; React</span><span class="stack__where">Particle Playground, MedLab Studio und Jarvis</span></li>
-          <li><span class="stack__name">Lua</span><span class="stack__where">Spielmodus für nanos world und Addons für Garry’s Mod</span></li>
-          <li><span class="stack__name">WebGL2 &amp; GLSL</span><span class="stack__where">Grafik und Simulation auf der Grafikkarte in Particle Playground</span></li>
-          <li><span class="stack__name">Python &amp; FastAPI</span><span class="stack__where">Backend und Signalverarbeitung von MedLab Studio</span></li>
-          <li><span class="stack__name">Node.js</span><span class="stack__where">die Verbindung zwischen Oberfläche und Assistent bei Jarvis</span></li>
-          <li><span class="stack__name">Vitest, pytest, Playwright</span><span class="stack__where">Tests in Particle Playground und MedLab Studio</span></li>
-          <li><span class="stack__name">HTML &amp; CSS</span><span class="stack__where">diese Website – ohne Framework</span></li>
-        </ul>
-        <div class="principles reveal">
-          <div class="principle">
-            <h3>Tests für die Kernlogik</h3>
-            <p>Etwa für den Determinismus in Particle Playground, die Filter in MedLab Studio und die Abläufe meiner Garry’s-Mod-Addons.</p>
-          </div>
-          <div class="principle">
-            <h3>Commits mit Begründung</h3>
-            <p>Meine Commit-Nachrichten beschreiben, was sich geändert hat und warum – nachlesbar in den verlinkten Repositories.</p>
-          </div>
-          <div class="principle">
-            <h3>Grenzen in der Oberfläche</h3>
-            <p>MedLab Studio erklärt Modelle, Annahmen und Einschränkungen direkt neben den Ergebnissen.</p>
+          <div class="about__side">
+            <aside class="now reveal" aria-labelledby="now-title">
+              <p class="now__label"><span class="pulse" aria-hidden="true"></span><span id="now-title">Aktuell</span></p>
+              <ul class="now__list">
+                <li><span>Zuletzt</span> Den Particle-Playground-Editor fürs Handy umgebaut.</li>
+                <li><span>Als Nächstes</span> Neue Labore für MedLab Studio: Wearable-Sensordaten und Arzneimittelspiegel.</li>
+              </ul>
+              <p class="now__date">Stand: <time datetime="2026-10">Oktober 2026</time></p>
+            </aside>
+
+            <div class="stack reveal" aria-labelledby="stack-title">
+              <h3 class="about__sub" id="stack-title">Womit ich arbeite</h3>
+              <dl class="stack__list">
+                <div><dt>TypeScript &amp; React</dt><dd>Particle Playground, MedLab Studio, Jarvis</dd></div>
+                <div><dt>Lua</dt><dd>Jack’s Last Show, TimeTales</dd></div>
+                <div><dt>WebGL2 &amp; GLSL</dt><dd>Grafik und Simulation in Particle Playground</dd></div>
+                <div><dt>Python &amp; FastAPI</dt><dd>Backend von MedLab Studio</dd></div>
+                <div><dt>Node.js</dt><dd>Bridge von Jarvis</dd></div>
+                <div><dt>Vitest, pytest, Playwright</dt><dd>Tests in Particle Playground und MedLab Studio</dd></div>
+                <div><dt>HTML &amp; CSS</dt><dd>diese Website, ohne Framework</dd></div>
+              </dl>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Kontakt -->
+    <!-- ============ Kontakt ============ -->
     <section class="section section--contact" id="kontakt" aria-labelledby="kontakt-title">
       <div class="container contact reveal">
         <img class="contact__avatar" src="assets/img/awa-192.webp" width="96" height="96" alt="" loading="lazy">
-        <p class="eyebrow">05 · Kontakt</p>
+        <p class="eyebrow">04 · Kontakt</p>
         <h2 id="kontakt-title">Lust auf Austausch?</h2>
         <p>Fragen zum Code, Ideen für einen Spielmodus, eine Runde zusammen oder Lust, an etwas mitzubauen – am schnellsten erreichst du mich auf Discord. Fehler und Vorschläge zu einem Projekt kannst du auch direkt als Issue auf GitHub melden.</p>
         <div class="contact__links">
@@ -531,6 +430,25 @@
       </div>
     </section>
   </main>
+
+  <!-- Seitenpanel für Projektdetails (wird per JavaScript befüllt) -->
+  <dialog class="drawer" aria-labelledby="drawer-title">
+    <div class="drawer__bar">
+      <button class="drawer__nav" type="button" data-step="-1" aria-label="Vorheriges Projekt"><span aria-hidden="true">←</span></button>
+      <span class="drawer__count" aria-live="polite"></span>
+      <button class="drawer__nav" type="button" data-step="1" aria-label="Nächstes Projekt"><span aria-hidden="true">→</span></button>
+      <button class="drawer__close" type="button">Schließen <span aria-hidden="true">✕</span></button>
+    </div>
+    <div class="drawer__scroll">
+      <div class="drawer__media"></div>
+      <div class="drawer__content">
+        <p class="card__meta drawer__meta"></p>
+        <h2 class="drawer__title" id="drawer-title"></h2>
+        <p class="drawer__lead"></p>
+        <div class="drawer__detail detail"></div>
+      </div>
+    </div>
+  </dialog>
 
   <!-- Vergrößerte Screenshots -->
   <dialog class="lightbox" aria-label="Screenshot vergrößert">
