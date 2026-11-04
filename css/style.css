@@ -426,6 +426,35 @@ code {
   color: var(--ink-soft);
 }
 
+/* Hinweis auf den Game-Jam-Sieg über der Überschrift */
+.hero__award {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  max-width: 100%;
+  margin-bottom: 18px;
+  padding: 5px 14px 5px 5px;
+  border: 1.5px solid var(--ink);
+  border-radius: 999px;
+  background: var(--card);
+  box-shadow: 3px 3px 0 var(--ink);
+  color: var(--ink);
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.15s var(--ease), box-shadow 0.15s var(--ease);
+}
+@media (max-width: 479px) { .hero__award-host { display: none; } }
+.hero__award:hover { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 var(--ink); }
+.hero__award-rank {
+  padding: 2px 10px;
+  border-radius: 999px;
+  background: var(--ink);
+  color: var(--highlight);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+}
+
 .hero__actions {
   display: flex;
   flex-wrap: wrap;
@@ -723,6 +752,29 @@ html:not(.js) .hero__fx { display: none; }
   border: 1px solid var(--line);
   color: var(--ink);
 }
+
+/* Wertungen beim Game Jam (Jack's Last Show) */
+.awards {
+  list-style: none;
+  margin: 0 0 14px;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+.awards li {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 8px 12px;
+  border: 1.5px solid var(--ink);
+  border-radius: var(--radius-sm);
+  background: var(--card-2);
+}
+.awards span { font-size: 0.78rem; color: var(--muted); }
+.awards strong { font-family: var(--font-mono); font-size: 0.95rem; font-weight: 600; color: var(--ink); }
+.awards .awards__top { background: var(--highlight); }
+.awards .awards__top span { color: var(--ink-soft); }
 
 /* Beispiel statt Screenshot (TimeTales) */
 .card__media--example {
